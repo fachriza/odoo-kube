@@ -1,5 +1,5 @@
 # Odoo-kube
-Instalation odoo with kubernetes and skaffold
+Installation odoo with kubernetes and skaffold
 
 ### Environtment
 * [Kubernetes] - Production-Grade Container Orchestration
