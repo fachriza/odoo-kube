@@ -1,0 +1,59 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  labels:
+    app: web
+  name: web
+spec:
+  replicas: 1
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: web
+    spec:
+      containers:
+      - env:
+        - name: ODOO_VERSION
+          value: "13.0"
+        image: web
+        name: web
+        ports:
+        - containerPort: 8069
+          name: http
+          protocol: TCP
+        volumeMounts:
+        - mountPath: /var/lib/odoo
+          name: web-filestore-pvc
+        - mountPath: /etc/odoo
+          name: web-config-pvc
+        - mountPath: /var/log/odoo
+          name: web-log-pvc
+        - mountPath: /var/lib/odoo/addons/13.0
+          name: web-addons-pvc
+        - mountPath: /var/www/odoo
+          name: web-odoo-pvc
+        imagePullPolicy: Never
+      volumes:
+      - name: web-filestore-pvc
+        hostPath:
+          path: /Users/fachriza/mbiz/apps/odoo/odoo-kube/filestore
+          type: Directory
+      - name: web-config-pvc
+        hostPath:
+          path: /Users/fachriza/mbiz/apps/odoo/odoo-kube/config
+          type: Directory
+      - name: web-log-pvc
+        hostPath:
+          path: /Users/fachriza/mbiz/apps/odoo/odoo-kube/logs/odoo
+          type: Directory
+      - name: web-addons-pvc
+        hostPath:
+          path: /Users/fachriza/mbiz/apps/odoo/odoo-kube/workspace
+          type: Directory
+      - name: web-odoo-pvc
+        hostPath:
+          path: /Users/fachriza/mbiz/apps/odoo/odoo-kube/src/odoo
+          type: Directory
+status: {}

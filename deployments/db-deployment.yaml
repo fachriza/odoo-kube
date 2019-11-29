@@ -1,0 +1,38 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  labels:
+    app: db
+  name: db
+spec:
+  replicas: 1
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: db
+    spec:
+      containers:
+      - env:
+        - name: PGDATA
+          value: /var/lib/postgresql/data/pgdata
+        - name: POSTGRES_DB
+          value: db
+        - name: POSTGRES_PASSWORD
+          value: odoo
+        - name: POSTGRES_USER
+          value: odoo
+        image: postgres:10
+        name: db
+        resources: {}
+        volumeMounts:
+        - mountPath: /var/lib/postgresql/data/pgdata
+          name: db-pvc
+        imagePullPolicy: Always
+      volumes:
+      - name: db-pvc
+        hostPath:
+          path: /Users/fachriza/mbiz/apps/odoo/odoo-kube/.data/pgdata
+          type: Directory
+status: {}
