@@ -1,0 +1,30 @@
+apiVersion: skaffold/v1
+kind: Config
+metadata:
+  name: odoo-kube
+build:
+  local:
+    push:
+  tagPolicy:
+    envTemplate:
+      template: "{{.IMAGE_NAME}}:latest"
+  artifacts:
+  - image: web
+    context: ./
+    docker: 
+      dockerfile: ./servers/odoo/Dockerfile
+deploy:
+  kubectl:
+    manifests:
+    - ./volumes/db-pvc.yaml
+    - ./deployments/db-deployment.yaml
+    - ./services/db-service.yaml
+    - ./deployments/pgadmin-deployment.yaml
+    - ./services/pgadmin-service.yaml
+    - ./volumes/web-filestore-pvc.yaml
+    - ./volumes/web-config-pvc.yaml
+    - ./volumes/web-log-pvc.yaml
+    - ./volumes/web-addons-pvc.yaml
+    - ./volumes/web-odoo-pvc.yaml
+    - ./deployments/web-deployment.yaml
+    - ./services/web-service.yaml
