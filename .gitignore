@@ -8,3 +8,4 @@
 filestore/addons
 filestore/filestore
 sessions/sessions
+config/odoo.conf
