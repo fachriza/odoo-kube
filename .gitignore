@@ -2,5 +2,9 @@
 *.log
 *.env
 *.DS_Store
+*.bash_history
 
 .data/pgdata
+filestore/addons
+filestore/filestore
+sessions/sessions
