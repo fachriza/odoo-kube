@@ -3,6 +3,7 @@
 *.env
 *.DS_Store
 *.bash_history
+*.swp
 
 .data/pgdata
 filestore/addons
