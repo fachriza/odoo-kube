@@ -1,2 +1,6 @@
 *.sess
 *.log
+*.env
+*.DS_Store
+
+.data/pgdata
