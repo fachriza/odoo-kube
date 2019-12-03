@@ -21,6 +21,12 @@ to access pgadmin `http://localhost:5555`
 * [PostgreSQL] - the world's most advanced open source database
 * [pgAdmin] - PostgreSQL Tools
 
+### Todos
+
+ - set volume Hostpath as variabel in .env
+ - graylog
+ - redis
+
    
    [Skaffold]: <https://skaffold.dev/>
    [Kubernetes]: <https://kubernetes.io/>
