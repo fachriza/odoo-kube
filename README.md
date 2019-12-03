@@ -3,7 +3,7 @@ Installation odoo with kubernetes and skaffold
 
 * clone this repo && cd odoo-kube
 * cp .env.example to .env
-* cd config && cp odoo.conf.example odoo.conf
+* cp config/odoo.conf.example config/odoo.conf
 * git submodule init && git submodule update
 * run `kubectl create -f odoo-namespace.yaml`
 * run `skaffold run -n odoo`
