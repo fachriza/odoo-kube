@@ -14,7 +14,7 @@ to access odoo web `http://localhost:8069`
 to access pgadmin `http://localhost:5555`
 
 
-### Environtment
+### Environment
 * [Kubernetes] - Production-Grade Container Orchestration
 * [Skaffold] - Local Kubernetes Development
 * [Odoo] - Open Source ERP and CRM
