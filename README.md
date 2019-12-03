@@ -6,8 +6,8 @@ $ clone this repo && cd odoo-kube
 $ cp .env.example to .env
 $ cp config/odoo.conf.example config/odoo.conf
 $ git submodule init && git submodule update
-$ run `kubectl create -f odoo-namespace.yaml`
-$ run `skaffold run -n odoo`
+$ kubectl create -f odoo-namespace.yaml
+$ skaffold run -n odoo
 ```
 
 to access odoo web `http://localhost:8069`
